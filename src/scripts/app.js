@@ -57,6 +57,7 @@ class App {
     this.nav = null;
     this.outgoingWrapper = null;
     this.incomingWrapper = null;
+    this.outgoingScrollTop = 0;
 
     this.render();
     this.addEventListeners();
@@ -91,14 +92,30 @@ class App {
     };
     this.outgoingWrapper = null;
     this.incomingWrapper = null;
+    this.outgoingScrollTop = document.querySelector('.app__wrapper')?.scrollTop ?? 0;
 
     if (this.prefersReducedMotion()) return;
 
     const originalLoader = event.loader;
     event.loader = async () => {
-      const leavePromise = this.runLeave();
-      await originalLoader();
-      await leavePromise;
+      const current = document.querySelector('.app__wrapper');
+      const keep = this.outgoingScrollTop;
+      const winX = window.scrollX;
+      const winY = window.scrollY;
+      const lockScroll = () => {
+        if (current && current.scrollTop !== keep) current.scrollTop = keep;
+        if (window.scrollX !== winX || window.scrollY !== winY) window.scrollTo(winX, winY);
+      };
+      current?.addEventListener('scroll', lockScroll);
+      window.addEventListener('scroll', lockScroll);
+      try {
+        const leavePromise = this.runLeave();
+        await originalLoader();
+        await leavePromise;
+      } finally {
+        current?.removeEventListener('scroll', lockScroll);
+        window.removeEventListener('scroll', lockScroll);
+      }
     };
   }
 
@@ -128,6 +145,7 @@ class App {
       if (incoming?.parentNode) {
         incoming.parentNode.insertBefore(this.outgoingWrapper, incoming);
       }
+      this.outgoingWrapper.scrollTop = this.outgoingScrollTop;
       incoming?.scrollTo(0, 0);
       return;
     }
@@ -185,7 +203,6 @@ class App {
   resetPageScroll(container) {
     const el = container ?? document.querySelector('.app__wrapper');
     el?.scrollTo(0, 0);
-    window.scrollTo(0, 0);
   }
 
   runBefore(data) {
@@ -204,8 +221,10 @@ class App {
 
       gsap.set(data.current.container, {
         zIndex: 2,
+        overflow: 'hidden',
         willChange: 'auto',
       });
+      data.current.container.scrollTop = this.outgoingScrollTop;
       return;
     }
 
@@ -244,6 +263,12 @@ class App {
 
   runLeave() {
     if (!OVERLAY_TRANSITIONS.has(this.nav.name)) return Promise.resolve();
+
+    const current = document.querySelector('.app__wrapper');
+    if (current) {
+      current.style.overflow = 'hidden';
+      current.scrollTop = this.outgoingScrollTop;
+    }
 
     const data = {
       trigger: this.nav.isHistory ? 'back' : document.createElement('a'),
