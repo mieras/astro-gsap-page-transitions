@@ -1,10 +1,79 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 ---
 
 <Layout uid="about">
-  <div class="content about">
-    <h1 class="title">about</h1>
-    <p>Credits: <a href="https://www.faint-film.com/" target="_blank">https://www.faint-film.com/</a></p>
-  </div>
+  <article class="page page--about">
+    <header class="hero">
+      <p class="hero__meta">
+        <span>About</span>
+        <span>Editorial template</span>
+        <span>Long-form</span>
+      </p>
+      <h1 class="page__title title">about</h1>
+      <p class="hero__lede">
+        Hale is a small studio for spatial films and built environments. This page is a
+        mock about-template: a quiet hero, a full-bleed still, then a two-column story.
+      </p>
+      <p class="credits">Credits: <a href="https://www.faint-film.com/" target="_blank">https://www.faint-film.com/</a></p>
+    </header>
+
+    <section class="section section--tight">
+      <MediaPlaceholder label="Portrait · 4:5" ratio="16 / 8" caption="Studio courtyard, late afternoon" />
+    </section>
+
+    <section class="section">
+      <span class="section__label">01 — Studio</span>
+      <div class="split split--story">
+        <div>
+          <h2 class="section__heading">A room that looks back</h2>
+          <p class="section__copy">
+            Dummy copy. We work with architects, museums, and landscape offices. The about
+            template is intentionally text-led, so you can feel how the WebGL wipe sits
+            over a longer document instead of a single centered title.
+          </p>
+          <p class="section__copy" style="margin-top: 1rem;">
+            Dummy copy. Placeholder media below this block is where a founder portrait or
+            workshop photograph would go. Nothing here is final content.
+          </p>
+        </div>
+        <dl class="facts">
+          <div>
+            <dt>Based</dt>
+            <dd>Rotterdam / Lisbon</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd>4 directors, 2 editors</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Architecture, landscape, interiors</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="section__label">02 — Approach</span>
+      <div class="principles">
+        <article class="principle">
+          <span class="principle__index">01</span>
+          <h3 class="principle__title">Duration</h3>
+          <p class="section__copy">Dummy copy. We stay on site long enough for weather to become a character.</p>
+        </article>
+        <article class="principle">
+          <span class="principle__index">02</span>
+          <h3 class="principle__title">Material</h3>
+          <p class="section__copy">Dummy copy. Concrete, timber, glass — and the sound they make when empty.</p>
+        </article>
+        <article class="principle">
+          <span class="principle__index">03</span>
+          <h3 class="principle__title">Cut</h3>
+          <p class="section__copy">Dummy copy. Editing is part of the design, not a layer added afterwards.</p>
+        </article>
+      </div>
+    </section>
+  </article>
 </Layout>

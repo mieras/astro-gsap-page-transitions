@@ -1,17 +1,65 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 ---
 
 <Layout uid="contact">
-  <div class="content contact">
-    <h1
-      class="title"
-      data-motion-text="true"
-      data-motion-text-split="chars"
-      data-motion-text-duration="0.5"
-    >
-      contact
-    </h1>
-    <p>Credits: <a href="https://www.leandra-isler.ch/" target="_blank">https://www.leandra-isler.ch/</a></p>
-  </div>
+  <article class="page page--contact">
+    <header class="hero">
+      <p class="hero__meta">
+        <span>Contact</span>
+        <span>Visit template</span>
+        <span>Rotterdam</span>
+      </p>
+      <h1
+        class="page__title title"
+        data-motion-text="true"
+        data-motion-text-split="chars"
+        data-motion-text-duration="0.5"
+      >
+        contact
+      </h1>
+      <p class="hero__lede">
+        A visit template with studio details, a dummy form, and a map placeholder.
+        The polygon transition should open onto this two-column layout.
+      </p>
+      <p class="credits">Credits: <a href="https://www.leandra-isler.ch/" target="_blank">https://www.leandra-isler.ch/</a></p>
+    </header>
+
+    <section class="section">
+      <div class="contact-grid">
+        <div>
+          <span class="section__label">Studio</span>
+          <dl class="facts">
+            <div>
+              <dt>Address</dt>
+              <dd>Keilestraat 9<br />3029 BN Rotterdam</dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>Tue–Fri, 10:00–18:00</dd>
+            </div>
+            <div>
+              <dt>Mail</dt>
+              <dd>studio@hale.example</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div>
+          <span class="section__label">Write</span>
+          <div class="form-mock" aria-hidden="true">
+            <p class="form-row"><span>Name</span><strong>Placeholder field</strong></p>
+            <p class="form-row"><span>Email</span><strong>Placeholder field</strong></p>
+            <p class="form-row"><span>Project</span><strong>Film / stills / other</strong></p>
+            <p class="form-row"><span>Message</span><strong>Dummy line — this form does not submit.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <MediaPlaceholder label="Map · 16:9" ratio="16 / 9" caption="Placeholder for a studio map or street still" />
+    </section>
+  </article>
 </Layout>

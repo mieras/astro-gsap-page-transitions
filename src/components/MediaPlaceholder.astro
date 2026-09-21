@@ -1,0 +1,18 @@
+---
+interface Props {
+  label?: string;
+  ratio?: string;
+  caption?: string;
+  size?: "full" | "default";
+}
+
+const { label = "Image", ratio = "16 / 9", caption, size = "default" } = Astro.props;
+---
+
+<figure class:list={["media", size === "full" && "media--full"]}>
+  <div class="media__frame" style={`aspect-ratio: ${ratio};`} aria-hidden="true">
+    <span class="media__mark"></span>
+    <span class="media__label">{label}</span>
+  </div>
+  {caption && <figcaption class="media__caption">{caption}</figcaption>}
+</figure>

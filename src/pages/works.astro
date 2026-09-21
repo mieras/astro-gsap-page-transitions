@@ -1,17 +1,62 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 ---
 
 <Layout uid="works">
-  <div class="content works">
-    <h1
-      class="title"
-      data-motion-text="true"
-      data-motion-text-split="chars"
-      data-motion-text-duration="0.5"
-    >
-      works
-    </h1>
-    <p>Credits: <a href="https://codepen.io/GreenSock/full/EaKpEpJ" target="_blank">https://codepen.io/GreenSock/full/EaKpEpJ</a></p>
-  </div>
+  <article class="page page--works">
+    <header class="hero">
+      <p class="hero__meta">
+        <span>Works</span>
+        <span>Index template</span>
+        <span>04 projects</span>
+      </p>
+      <h1
+        class="page__title title"
+        data-motion-text="true"
+        data-motion-text-split="chars"
+        data-motion-text-duration="0.5"
+      >
+        works
+      </h1>
+      <p class="hero__lede">
+        A project-index template: stacked case studies with large media placeholders.
+        Use this to test the MorphSVG transition over a scrolling list.
+      </p>
+      <p class="credits">Credits: <a href="https://codepen.io/GreenSock/full/EaKpEpJ" target="_blank">https://codepen.io/GreenSock/full/EaKpEpJ</a></p>
+    </header>
+
+    <section class="section">
+      <article class="project">
+        <p class="project__meta"><span>01 / 2025</span><span>Film</span></p>
+        <h2 class="project__title">North Pavilion</h2>
+        <MediaPlaceholder label="Hero still · 16:9" ratio="16 / 9" caption="Placeholder for the opening frame" />
+        <p class="section__copy">Dummy copy. A year-long record of a public pavilion from excavation to opening night.</p>
+      </article>
+
+      <article class="project">
+        <p class="project__meta"><span>02 / 2024</span><span>Photography</span></p>
+        <h2 class="project__title">Glass House Studies</h2>
+        <div class="split split--project">
+          <MediaPlaceholder label="Plate · 4:5" ratio="4 / 5" caption="Interior, west elevation" />
+          <MediaPlaceholder label="Plate · 4:5" ratio="4 / 5" caption="Threshold, dusk" />
+        </div>
+        <p class="section__copy">Dummy copy. Pair of portrait-format stills to see how two media blocks land after the page wipe.</p>
+      </article>
+
+      <article class="project">
+        <p class="project__meta"><span>03 / 2023</span><span>Installation</span></p>
+        <h2 class="project__title">Salt Garden</h2>
+        <MediaPlaceholder label="Wide · 21:9" ratio="21 / 9" caption="Exhibition view, Kunsthal" />
+        <p class="section__copy">Dummy copy. Wide cinematic ratio as a stress-test for the overlay covering large images.</p>
+      </article>
+
+      <article class="project">
+        <p class="project__meta"><span>04 / 2022</span><span>Archive</span></p>
+        <h2 class="project__title">Field Notes, Vol. II</h2>
+        <MediaPlaceholder label="Contact sheet · 3:2" ratio="3 / 2" caption="35mm sheets, ungraded" />
+        <p class="section__copy">Dummy copy. Last project in the list so you can scroll deep, then navigate away.</p>
+      </article>
+    </section>
+  </article>
 </Layout>

@@ -123,12 +123,16 @@ class App {
   }
 
   onAfterSwap() {
-    if (!this.outgoingWrapper) return;
-
-    const incoming = this.incomingWrapper ?? document.querySelector('.app__wrapper');
-    if (incoming?.parentNode) {
-      incoming.parentNode.insertBefore(this.outgoingWrapper, incoming);
+    if (this.outgoingWrapper) {
+      const incoming = this.incomingWrapper ?? document.querySelector('.app__wrapper');
+      if (incoming?.parentNode) {
+        incoming.parentNode.insertBefore(this.outgoingWrapper, incoming);
+      }
+      incoming?.scrollTo(0, 0);
+      return;
     }
+
+    this.resetPageScroll(this.incomingWrapper);
   }
 
   async onPageLoad() {
@@ -152,6 +156,7 @@ class App {
       this.motionTexts.init(next);
       this.motionTexts.animationIn();
       this.cleanupOutgoing();
+      this.resetPageScroll(next);
       this.setTransitioning(false);
       this.nav = null;
       return;
@@ -165,6 +170,7 @@ class App {
     }
 
     this.cleanupOutgoing();
+    this.resetPageScroll(next);
     this.nav = null;
   }
 
@@ -174,6 +180,12 @@ class App {
       this.outgoingWrapper = null;
     }
     this.incomingWrapper = null;
+  }
+
+  resetPageScroll(container) {
+    const el = container ?? document.querySelector('.app__wrapper');
+    el?.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }
 
   runBefore(data) {

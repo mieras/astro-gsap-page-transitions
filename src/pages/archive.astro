@@ -1,10 +1,76 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 ---
 
 <Layout uid="archive">
-  <div class="content archive">
-    <h1 class="title">archive</h1>
-    <p>Credits: <a href="https://truus.co/" target="_blank">https://truus.co/</a></p>
-  </div>
+  <article class="page page--archive">
+    <header class="hero">
+      <p class="hero__meta">
+        <span>Archive</span>
+        <span>Index / list template</span>
+        <span>2019 — 2026</span>
+      </p>
+      <h1 class="page__title title">archive</h1>
+      <p class="hero__lede">
+        A denser list template: year, title, and a small media thumb. Built to test the
+        DrawSVG overlay on a document that reads more like an index than a poster.
+      </p>
+      <p class="credits">Credits: <a href="https://truus.co/" target="_blank">https://truus.co/</a></p>
+    </header>
+
+    <section class="section">
+      <span class="section__label">Entries</span>
+      <div class="archive-list">
+        <article class="archive-item">
+          <span class="archive-item__year">2026</span>
+          <div>
+            <h2 class="archive-item__title">North Pavilion diary</h2>
+            <p class="section__copy">Dummy note. Weekly stills from the build, unpublished.</p>
+          </div>
+          <MediaPlaceholder label="Thumb · 4:3" ratio="4 / 3" />
+        </article>
+        <article class="archive-item">
+          <span class="archive-item__year">2025</span>
+          <div>
+            <h2 class="archive-item__title">Lisbon workshop</h2>
+            <p class="section__copy">Dummy note. Three-day session on editing architecture film.</p>
+          </div>
+          <MediaPlaceholder label="Thumb · 4:3" ratio="4 / 3" />
+        </article>
+        <article class="archive-item">
+          <span class="archive-item__year">2024</span>
+          <div>
+            <h2 class="archive-item__title">Glass House plates</h2>
+            <p class="section__copy">Dummy note. Unused 4×5 sheets from the west elevation.</p>
+          </div>
+          <MediaPlaceholder label="Thumb · 4:3" ratio="4 / 3" />
+        </article>
+        <article class="archive-item">
+          <span class="archive-item__year">2023</span>
+          <div>
+            <h2 class="archive-item__title">Salt Garden essay</h2>
+            <p class="section__copy">Dummy note. Installation views and a short written piece.</p>
+          </div>
+          <MediaPlaceholder label="Thumb · 4:3" ratio="4 / 3" />
+        </article>
+        <article class="archive-item">
+          <span class="archive-item__year">2021</span>
+          <div>
+            <h2 class="archive-item__title">Field Notes, Vol. I</h2>
+            <p class="section__copy">Dummy note. First bound volume of site sketches.</p>
+          </div>
+          <MediaPlaceholder label="Thumb · 4:3" ratio="4 / 3" />
+        </article>
+        <article class="archive-item">
+          <span class="archive-item__year">2019</span>
+          <div>
+            <h2 class="archive-item__title">Studio opening</h2>
+            <p class="section__copy">Dummy note. The courtyard before the roof went on.</p>
+          </div>
+          <MediaPlaceholder label="Thumb · 4:3" ratio="4 / 3" />
+        </article>
+      </div>
+    </section>
+  </article>
 </Layout>

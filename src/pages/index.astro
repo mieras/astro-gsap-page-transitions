@@ -1,17 +1,74 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 ---
 
 <Layout uid="index">
-  <div class="content">
-    <h1
-      class="title"
-      data-motion-text="true"
-      data-motion-text-split="chars"
-      data-motion-text-duration="0.5"
-    >
-      index
-    </h1>
-    <p>Credits: <a href="https://cielrose.tv/" target="_blank">https://cielrose.tv/</a></p>
-  </div>
+  <article class="page page--index">
+    <header class="hero hero--center">
+      <p class="hero__meta">
+        <span>Studio Hale</span>
+        <span>Spatial design / film</span>
+        <span>Est. 2014</span>
+      </p>
+      <h1
+        class="page__title title"
+        data-motion-text="true"
+        data-motion-text-split="chars"
+        data-motion-text-duration="0.5"
+      >
+        index
+      </h1>
+      <p class="hero__lede">
+        A mock landing template: oversized title, then selected work and a short studio note.
+        Built to test page transitions on a scrolling homepage.
+      </p>
+      <p class="credits">Credits: <a href="https://cielrose.tv/" target="_blank">https://cielrose.tv/</a></p>
+    </header>
+
+    <section class="section">
+      <span class="section__label">01 — Selected work</span>
+      <div class="split split--project">
+        <MediaPlaceholder label="Still · 16:9" ratio="16 / 9" caption="North Pavilion — construction sequence" />
+        <div>
+          <p class="project__meta"><span>2025</span><span>Architecture film</span></p>
+          <h2 class="project__title">North Pavilion</h2>
+          <p class="section__copy">
+            Three seasons on a coastal site. Placeholder media stands in for a hero still,
+            with a short caption so the transition can reveal real content length.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <MediaPlaceholder label="Gallery · 21:9" ratio="21 / 9" caption="Field studies, 35mm contact sheet" size="full" />
+    </section>
+
+    <section class="section">
+      <span class="section__label">02 — Practice</span>
+      <h2 class="section__heading">Rooms, light, and the cut between them</h2>
+      <div class="principles">
+        <article class="principle">
+          <span class="principle__index">01</span>
+          <h3 class="principle__title">Observe</h3>
+          <p class="section__copy">Dummy copy. Site notes, weather logs, and long takes before anything is framed.</p>
+        </article>
+        <article class="principle">
+          <span class="principle__index">02</span>
+          <h3 class="principle__title">Build</h3>
+          <p class="section__copy">Dummy copy. Models, mock-ups, and construction stills live in this column later.</p>
+        </article>
+        <article class="principle">
+          <span class="principle__index">03</span>
+          <h3 class="principle__title">Edit</h3>
+          <p class="section__copy">Dummy copy. Sequence, silence, and the last frame before the next page.</p>
+        </article>
+      </div>
+      <p class="cta-row">
+        <a href="/works">See works</a>
+        <a href="/contact">Visit the studio</a>
+      </p>
+    </section>
+  </article>
 </Layout>

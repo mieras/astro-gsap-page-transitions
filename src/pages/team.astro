@@ -1,17 +1,68 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MediaPlaceholder from "../components/MediaPlaceholder.astro";
 ---
 
 <Layout uid="team">
-  <div class="content team">
-    <h1
-      class="title"
-      data-motion-text="true"
-      data-motion-text-split="chars"
-      data-motion-text-duration="0.75"
-    >
-      team
-    </h1>
-    <p>Credits: <a href="https://bloomparis.tv/" target="_blank">https://bloomparis.tv/</a></p>
-  </div>
+  <article class="page page--team">
+    <header class="hero">
+      <p class="hero__meta">
+        <span>Team</span>
+        <span>People template</span>
+        <span>04 portraits</span>
+      </p>
+      <h1
+        class="page__title title"
+        data-motion-text="true"
+        data-motion-text-split="chars"
+        data-motion-text-duration="0.75"
+      >
+        team
+      </h1>
+      <p class="hero__lede">
+        A people template with portrait placeholders. The clip-path overlay should cover
+        this grid, then reveal names and roles underneath.
+      </p>
+      <p class="credits">Credits: <a href="https://bloomparis.tv/" target="_blank">https://bloomparis.tv/</a></p>
+    </header>
+
+    <section class="section">
+      <span class="section__label">Studio</span>
+      <div class="people">
+        <article class="person">
+          <MediaPlaceholder label="Portrait · 3:4" ratio="3 / 4" />
+          <h2 class="person__name">Iris Hale</h2>
+          <p class="person__role">Director</p>
+          <p class="section__copy">Dummy bio. Looks after narrative and client conversations.</p>
+        </article>
+        <article class="person">
+          <MediaPlaceholder label="Portrait · 3:4" ratio="3 / 4" />
+          <h2 class="person__name">Jonas Veld</h2>
+          <p class="person__role">Cinematography</p>
+          <p class="section__copy">Dummy bio. Cameras, light, and the long take on site.</p>
+        </article>
+        <article class="person">
+          <MediaPlaceholder label="Portrait · 3:4" ratio="3 / 4" />
+          <h2 class="person__name">Mira Costa</h2>
+          <p class="person__role">Edit / sound</p>
+          <p class="section__copy">Dummy bio. Cuts, silence, and the last frame of a sequence.</p>
+        </article>
+        <article class="person">
+          <MediaPlaceholder label="Portrait · 3:4" ratio="3 / 4" />
+          <h2 class="person__name">Leah Park</h2>
+          <p class="person__role">Producer</p>
+          <p class="section__copy">Dummy bio. Schedules, permits, and keeping the truck on the road.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="section__label">Note</span>
+      <h2 class="section__heading">We hire per project</h2>
+      <p class="section__copy">
+        Dummy copy. Assistants, gaffers, and colorists join per production. This block
+        exists so the team page is taller than one viewport.
+      </p>
+    </section>
+  </article>
 </Layout>
