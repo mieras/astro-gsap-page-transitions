@@ -1,0 +1,37 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/app.css";
+import Frame from "../components/frame.astro";
+import Nav from "../components/nav.astro";
+import TransitionSvgWrapper from "../components/TransitionSvgWrapper.astro";
+import TransitionOverlay from "../components/TransitionOverlay.astro";
+import TransitionMorphSvg from "../components/TransitionMorphSvg.astro";
+const { uid } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" transition:animate="none">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Page Transitions with Astro and GSAP</title>
+    <link rel="icon" type="image/svg+xml" href="https://tympanus.net/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="https://tympanus.net/favicon/favicon.ico" />
+    <ClientRouter fallback="swap" />
+  </head>
+  <body data-page={uid}>
+    <Frame />
+    <div data-page={uid} class="app__wrapper">
+      <main class="content__wrapper">
+        <slot />
+      </main>
+    </div>
+    <Nav />
+    <TransitionSvgWrapper />
+    <TransitionOverlay />
+    <TransitionMorphSvg />
+    <canvas id="webgl" transition:persist="webgl" transition:name="webgl"></canvas>
+    <script src="../scripts/app.js"></script>
+  </body>
+</html>
