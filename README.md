@@ -1,6 +1,8 @@
 # Custom Page Transitions in Astro with GSAP
 
-A demo of six GSAP page transitions in Astro, using the built-in `ClientRouter` instead of a third-party SPA library. Persistent overlays, a WebGL canvas, and per-route timelines stay intact across client-side navigation.
+An adaptation of the [Codrops demo](https://tympanus.net/codrops/?p=112360) *Page Transitions in Astro with Barba.js & GSAP*, rebuilt with Astro's built-in [`ClientRouter`](https://docs.astro.build/en/guides/view-transitions/) instead of Barba.js.
+
+The original GSAP timelines are unchanged: persistent overlays, a WebGL canvas, and per-route transitions still run across client-side navigation. The original project lives at [Ibaliqbal/codrops-barbajs-page-transition](https://github.com/Ibaliqbal/codrops-barbajs-page-transition).
 
 ![Page transitions in Astro with GSAP](https://tympanus.net/codrops/wp-content/uploads/2026/04/PageTransitions_AstroGSAPBarbajs.webp)
 
